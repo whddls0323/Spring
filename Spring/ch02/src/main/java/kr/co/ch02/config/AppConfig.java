@@ -5,7 +5,9 @@ import kr.co.ch02.sub1.Welcome;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
+@EnableAspectJAutoProxy // Spring AOP 활성화
 @Configuration
 @ComponentScan(basePackages = {"kr.co.ch02"})
 public class AppConfig {

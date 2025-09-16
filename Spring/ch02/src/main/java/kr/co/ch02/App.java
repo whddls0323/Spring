@@ -10,9 +10,9 @@ import kr.co.ch02.config.AppConfig;
 import kr.co.ch02.sub1.Hello;
 import kr.co.ch02.sub1.Welcome;
 import kr.co.ch02.sub2.Computer;
+import kr.co.ch02.sub3.Service;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class App
 {
@@ -39,5 +39,14 @@ public class App
 
         Computer com = (Computer) context.getBean("computer");
         com.show();
+
+        //Spring AOP 실습
+
+        Service service = (Service) context.getBean("service");
+
+        service.findById();
+        service.register();
+        service.modify();
+        service.remove();
     }
 }
