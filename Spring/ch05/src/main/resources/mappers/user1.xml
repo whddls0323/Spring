@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.ch05.mapper.User1Mapper"> <!-- 오라클의 경우 sql문법뒤에 세미콜론 금지 mysql은 가능 -->
+
+    <resultMap id="user1Map" type="kr.co.ch05.dto.User1DTO">
+        <result property="uid" column="UID"/>
+        <result property="name" column="NAME"/>
+        <result property="birth" column="BIRTH"/>
+        <result property="age" column="AGE"/>
+    </resultMap>
+
+    <insert id="insertUser1">
+        <!-- insert into user1 values (#{uid},#{name},#{birth},#{age}); --> <!-- 로 되어 있는게 mysql,아닌건 oracle -->
+        insert into user1 values (#{uid},#{name},#{birth},#{age})
+    </insert>
+    <select id="selectAllUser1" resultType="kr.co.ch05.dto.User1DTO">
+        <!-- select * from user1; -->
+        select * from user1
+    </select>
+    <select id="selectUser1" resultType="kr.co.ch05.dto.User1DTO">
+        <!-- select * from USER1 WHERE uid=#{uid}; -->
+        select * from user1 where "UID" = #{uid}
+    </select>
+    <update id="updateUser1">
+        <!--update USER1 set name=#{name},
+                         birth=#{birth},
+                         age=#{age}
+                    where
+                         uid=#{uid}; -->
+        update user1 set name=#{name},
+                         birth=#{birth},
+                         age=#{age}
+                    where
+                         "UID"=#{uid}
+    </update>
+    <delete id="deleteUser1">
+        <!-- DELETE FROM USER1 WHERE uid=#{uid}; -->
+        delete from user1 where "UID"=#{uid}
+    </delete>
+</mapper>
