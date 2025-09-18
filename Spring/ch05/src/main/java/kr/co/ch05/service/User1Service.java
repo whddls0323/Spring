@@ -3,7 +3,6 @@ package kr.co.ch05.service;
 import kr.co.ch05.dto.User1DTO;
 import kr.co.ch05.mapper.User1Mapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

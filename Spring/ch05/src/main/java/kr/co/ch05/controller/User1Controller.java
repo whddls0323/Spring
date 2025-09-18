@@ -24,7 +24,6 @@ public class User1Controller {
     @PostMapping("/user1/register")
     public String register(User1DTO user1DTO) {
         System.out.println(user1DTO);
-
         service.regist(user1DTO);
 
         return "redirect:/user1/list";

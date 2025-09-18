@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.ch05.mapper.User3Mapper"> <!-- 오라클의 경우 sql문법뒤에 세미콜론 금지 mysql은 가능 -->
+
+    <insert id="insertUser3">
+        <!-- insert into user1 values (#{uid},#{name},#{birth},#{age}); --> <!-- 로 되어 있는게 mysql,아닌건 oracle -->
+        insert into user3 values (#{uid},#{name},#{birth},#{age})
+    </insert>
+    <select id="selectAllUser3" resultType="kr.co.ch05.dto.User3DTO">
+        <!-- select * from user1; -->
+        select * from user3
+    </select>
+    <select id="selectUser3" resultType="kr.co.ch05.dto.User3DTO">
+        <!-- select * from USER1 WHERE uid=#{uid}; -->
+        select * from user3 where "UID" = #{uid}
+    </select>
+    <update id="updateUser3">
+        <!--update USER1 set name=#{name},
+                         birth=#{birth},
+                         age=#{age}
+                    where
+                         uid=#{uid}; -->
+        update user3 set name=#{name},
+        birth=#{birth},
+        age=#{age}
+        where
+        "UID"=#{uid}
+    </update>
+    <delete id="deleteUser3">
+        <!-- DELETE FROM USER1 WHERE uid=#{uid}; -->
+        delete from user3 where "UID"=#{uid}
+    </delete>
+</mapper>
