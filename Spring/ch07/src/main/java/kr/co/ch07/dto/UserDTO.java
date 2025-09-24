@@ -1,13 +1,8 @@
 package kr.co.ch07.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import kr.co.ch07.entity.User;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
 
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
