@@ -18,7 +18,10 @@ public class UserService { //추가
     private final PasswordEncoder passwordEncoder;
 
     public List<UserDTO> getUsers(){
-        return null;
+        List<User> list = userRepository.findAll();
+        return list.stream()
+                .map(User::toDTO)
+                .toList();
     }
     public UserDTO getUser(String usid){
         return null;

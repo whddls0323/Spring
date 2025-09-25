@@ -1,7 +1,6 @@
 package kr.co.ch09.controller;
 
 import kr.co.ch09.dto.UserDTO;
-import kr.co.ch09.entity.User;
 import kr.co.ch09.jwt.JwtProvider;
 import kr.co.ch09.security.MyUserDetails;
 import kr.co.ch09.service.UserService;
@@ -11,11 +10,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -59,5 +60,14 @@ public class UserController {
     public ResponseEntity<UserDTO> register(@RequestBody UserDTO  userDTO){
         UserDTO savedUser = userService.save(userDTO);
         return ResponseEntity.ok(savedUser);
+    }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<UserDTO>> list(){
+        List<UserDTO> dtoList = userService.getUsers();
+
+        log.info(dtoList.toString());
+
+        return ResponseEntity.ok(dtoList);
     }
 }
