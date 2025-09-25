@@ -1,0 +1,35 @@
+logging:
+    file:
+        name: logs/ch09.log
+    level:
+        root: info
+mybatis:
+    mapper-locations: classpath:mappers/**/*.xml
+server:
+    port: 8080
+    servlet:
+        context-path: /ch09
+spring:
+    application:
+        name: ch09
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: abc1234!
+        url: jdbc:mysql://13.125.98.52:3306/whddls0323
+        username: whddls0323
+    devtools:
+        livereload:
+            enabled: true
+    jpa:
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+
+jwt: #추가
+    issuer: whddls0323@gmail.com
+    secret: ACEA164283E955BBF324B4E193A62104
